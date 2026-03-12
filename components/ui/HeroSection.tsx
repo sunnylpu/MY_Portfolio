@@ -45,7 +45,7 @@ const TypewriterText = ({ text, delay = 0 }: { text: string; delay?: number }) =
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay }}
-            className="text-lg md:text-xl text-neutral-400 mt-6 max-w-2xl mx-auto leading-relaxed"
+            className="text-lg md:text-xl text-text-secondary mt-6 max-w-2xl mx-auto leading-relaxed"
         >
             {text.split("").map((char, index) => (
                 <motion.span
@@ -80,7 +80,7 @@ export default function HeroSection() {
             className="h-screen overflow-hidden flex flex-col items-center justify-center relative"
         >
             <motion.div style={{ y }} className="relative z-10 text-center">
-                <h1 className="text-[12vw] leading-[0.8] font-display font-bold tracking-tighter mix-blend-difference mb-4">
+                <h1 className="text-[9vw] leading-[0.8] font-display font-bold tracking-tighter mix-blend-difference mb-4">
                     <Title text={PROFILE.name} />
                 </h1>
 
@@ -106,7 +106,7 @@ export default function HeroSection() {
                                 initial={{ scale: 0 }}
                                 animate={{ scale: 1 }}
                                 transition={{ type: "spring", delay: 1.2 + i * 0.1 }}
-                                className="w-12 h-12 flex items-center justify-center rounded-full border border-white/20 hover:bg-white/10 backdrop-blur-sm transition-colors text-white"
+                                className="w-12 h-12 flex items-center justify-center rounded-full border border-border hover:bg-card backdrop-blur-sm transition-colors text-text-primary shadow-sm hover:shadow-md"
                             >
                                 <social.icon size={20} />
                             </motion.a>
@@ -122,7 +122,7 @@ export default function HeroSection() {
                 className="absolute bottom-10 left-1/2 -translate-x-1/2"
             >
                 <div className="animate-bounce">
-                    <ArrowDown size={24} className="text-gray-400" />
+                    <ArrowDown size={24} className="text-text-secondary" />
                 </div>
             </motion.div>
         </div>

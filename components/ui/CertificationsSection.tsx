@@ -17,7 +17,7 @@ export default function CertificationsSection() {
                     <span className="inline-block py-1 px-3 rounded-full bg-accent/10 text-accent text-sm font-medium mb-4">
                         Continual Learning
                     </span>
-                    <h2 className="text-4xl font-bold font-display mb-4">
+                    <h2 className="text-4xl font-bold font-display mb-4 text-text-primary">
                         Professional <span className="text-gradient">Certifications</span>
                     </h2>
                 </motion.div>

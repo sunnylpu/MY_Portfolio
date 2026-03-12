@@ -58,10 +58,10 @@ export default function Navbar() {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
       className={`fixed top-4 md:top-6 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 w-[95%] md:w-auto overflow-x-auto no-scrollbar rounded-full ${
-        isScrolled ? "scale-100 shadow-2xl shadow-primary/20" : "scale-105"
+        isScrolled ? "scale-100 shadow-xl shadow-primary/10" : "scale-105"
       }`}
     >
-      <nav className="flex items-center gap-1.5 p-2 bg-neutral-900/80 dark:bg-black/60 shadow-[0_0_0_1px_rgba(255,255,255,0.1)] backdrop-blur-xl rounded-full min-w-max">
+      <nav className="flex items-center gap-1.5 p-2 bg-card/80 border border-border backdrop-blur-xl rounded-full min-w-max">
         {tabs.map((tab) => {
           const isActive = activeTab === tab.id;
           return (
@@ -69,7 +69,7 @@ export default function Navbar() {
               key={tab.id}
               onClick={() => scrollTo(tab.id)}
               className={`relative px-4 md:px-5 py-3 md:py-2.5 text-sm md:text-base font-semibold transition-colors rounded-full flex items-center gap-2.5 group ${
-                isActive ? "text-white" : "text-neutral-400 hover:text-white"
+                isActive ? "text-text-primary" : "text-text-secondary hover:text-text-primary"
               }`}
             >
               {/* Background Hover Glow */}
@@ -82,7 +82,7 @@ export default function Navbar() {
                 {isActive && (
                   <motion.div
                     layoutId="navbar-indicator"
-                    className="absolute inset-0 bg-white/10 dark:bg-white/15 shadow-[inset_0_1px_0_rgba(255,255,255,0.2)] rounded-full -z-10"
+                    className="absolute inset-0 bg-primary/10 border border-primary/20 shadow-[inset_0_1px_0_rgba(var(--primary),0.1)] rounded-full -z-10"
                     initial={false}
                     transition={{ type: "spring", stiffness: 300, damping: 30 }}
                   />
@@ -92,7 +92,7 @@ export default function Navbar() {
           );
         })}
         {/* Divider */}
-        <div className="w-px h-8 bg-white/10 mx-1 hidden md:block"></div>
+        <div className="w-px h-8 bg-border mx-1 hidden md:block"></div>
         {/* Embed Theme Toggle right inside the Navbar */}
         <div className="pl-1 pr-2 hidden md:block">
             <ThemeToggle />
