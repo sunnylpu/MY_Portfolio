@@ -26,13 +26,13 @@ export const PROFILE = {
 
 export const SKILLS = {
     technical: [
-        { name: "C++", level: 90 },
-        { name: "JavaScript", level: 85 },
-        { name: "React.js", level: 80 },
-        { name: "Node.js / Express", level: 75 },
-        { name: "MongoDB", level: 75 },
-        { name: "HTML/CSS", level: 90 },
-        { name: "Python", level: 70 }
+        { name: "C++", level: 90, icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" },
+        { name: "JavaScript", level: 85, icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" },
+        { name: "React.js", level: 80, icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" },
+        { name: "Node.js / Express", level: 75, icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" },
+        { name: "MongoDB", level: 75, icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg" },
+        { name: "HTML/CSS", level: 90, icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" },
+        { name: "Python", level: 70, icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" }
     ],
     professional: [
         { name: "Adaptability", level: 90 },
@@ -75,14 +75,17 @@ export const PROJECTS = [
     }
 ];
 
-export const EDUCATION = [
+export const SUMMER_TRAINING = [
     {
         institution: "CipherSchools (Ed-tech Company)",
         degree: "Summer Training",
         period: "Jun 2025 - Jul 2025",
         desc: "Developed a robust Full-Stack Note Application using MERN. Gained hands-on experience in debugging, code optimization, and integrating third-party APIs.",
         tags: ["MERN Stack", "Industrial Training", "Full Stack"]
-    },
+    }
+];
+
+export const EDUCATION = [
     {
         institution: "Lovely Professional University",
         degree: "B.Tech in Computer Science",

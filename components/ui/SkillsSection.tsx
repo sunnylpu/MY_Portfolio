@@ -5,14 +5,23 @@ import { motion, useInView } from "framer-motion";
 import { SKILLS } from "@/app/data";
 import TiltCard from "./TiltCard";
 
-const SkillBar = ({ name, level }: { name: string; level: number }) => {
+const SkillBar = ({ name, level, icon }: { name: string; level: number; icon?: string }) => {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true });
 
     return (
         <div ref={ref} className="mb-4">
-            <div className="flex justify-between mb-1">
-                <span className="text-sm font-medium text-gray-700 dark:text-gray-300">{name}</span>
+            <div className="flex justify-between items-center mb-1">
+                <div className="flex items-center gap-2">
+                    {icon && (
+                        <img 
+                            src={icon} 
+                            alt={`${name} icon`} 
+                            className="w-5 h-5 object-contain"
+                        />
+                    )}
+                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300">{name}</span>
+                </div>
                 <span className="text-sm font-medium text-gray-700 dark:text-gray-300">{level}%</span>
             </div>
             <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
@@ -53,7 +62,7 @@ export default function SkillsSection() {
                     <TiltCard className="bg-white/5 backdrop-blur-lg border border-white/10 p-8 rounded-2xl">
                         <h3 className="text-2xl font-bold mb-6 text-primary">Technical</h3>
                         {SKILLS.technical.map((skill) => (
-                            <SkillBar key={skill.name} name={skill.name} level={skill.level} />
+                            <SkillBar key={skill.name} name={skill.name} level={skill.level} icon={skill.icon} />
                         ))}
                     </TiltCard>
 
