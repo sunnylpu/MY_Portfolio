@@ -1,9 +1,54 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
-import { SKILLS } from "@/app/data";
+import { motion } from "framer-motion";
+import { SKILLS, PROFILE } from "@/app/data";
 import TiltCard from "./TiltCard";
+import { Code2 } from "lucide-react";
+
+const OrbitRing = ({ radius, speed, reverse, items, iconSize = 48 }: any) => {
+    return (
+        <motion.div
+            initial={{ rotate: 0 }}
+            animate={{ rotate: reverse ? -360 : 360 }}
+            transition={{ duration: speed, ease: "linear", repeat: Infinity }}
+            className="absolute rounded-full border border-border/20 border-dashed"
+            style={{ width: radius * 2, height: radius * 2, top: `calc(50% - ${radius}px)`, left: `calc(50% - ${radius}px)` }}
+        >
+            {items.map((item: any, i: number) => {
+                const angle = (i / items.length) * 360;
+                return (
+                    <motion.div
+                        key={item.name}
+                        className="absolute origin-center"
+                        style={{
+                            top: "50%",
+                            left: "50%",
+                            width: iconSize,
+                            height: iconSize,
+                            marginTop: -iconSize / 2,
+                            marginLeft: -iconSize / 2,
+                            transform: `rotate(${angle}deg) translate(${radius}px) rotate(-${angle}deg)`,
+                        }}
+                    >
+                        <motion.div
+                            initial={{ rotate: 0 }}
+                            animate={{ rotate: reverse ? 360 : -360 }}
+                            transition={{ duration: speed, ease: "linear", repeat: Infinity }}
+                            className="bg-card/90 backdrop-blur-md border border-border/50 rounded-full flex items-center justify-center p-2.5 shadow-lg shadow-black/5 hover:scale-125 hover:border-primary transition-all group relative z-10"
+                            style={{ width: "100%", height: "100%" }}
+                        >
+                            {item.icon && <img src={item.icon} alt={item.name} className="w-full h-full object-contain pointer-events-none drop-shadow-md" />}
+                            <span className="absolute -bottom-8 opacity-0 group-hover:opacity-100 transition-opacity text-xs font-bold text-text-primary whitespace-nowrap bg-background/90 px-2 py-1 rounded-md border border-border pointer-events-none shadow-xl">
+                                {item.name}
+                            </span>
+                        </motion.div>
+                    </motion.div>
+                );
+            })}
+        </motion.div>
+    );
+};
 
 // Replaced vertical SkillBar with horizontal cards below in the section rendering.
 
@@ -28,62 +73,26 @@ export default function SkillsSection() {
                     </p>
                 </motion.div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {/* Technical Skills */}
-                    <TiltCard className="bg-card border border-border p-8 rounded-2xl md:col-span-1 lg:col-span-2 shadow-sm">
-                        <h3 className="text-2xl font-bold mb-6 text-primary flex items-center gap-2 border-b border-border pb-4">
-                            Technical 
-                        </h3>
-                        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                            {SKILLS.technical.map((skill, index) => (
-                                <motion.div 
-                                    key={skill.name}
-                                    initial={{ opacity: 0, scale: 0.9 }}
-                                    whileInView={{ opacity: 1, scale: 1 }}
-                                    transition={{ delay: index * 0.05 }}
-                                    className="flex items-center gap-3 p-4 bg-background/50 rounded-xl border border-border/50 hover:border-primary/50 hover:bg-background transition-all cursor-default"
-                                >
-                                    {skill.icon && (
-                                        <img 
-                                            src={skill.icon} 
-                                            alt={`${skill.name} icon`} 
-                                            className="w-8 h-8 object-contain drop-shadow-md shrink-0"
-                                        />
-                                    )}
-                                    <span className="font-semibold text-text-primary">{skill.name}</span>
-                                </motion.div>
-                            ))}
-                        </div>
-                    </TiltCard>
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
+                    {/* Massive Orbital Canvas */}
+                    <div className="lg:col-span-3 bg-gradient-to-b from-card/30 to-background border border-border/50 rounded-3xl p-8 relative overflow-hidden flex items-center justify-center min-h-[600px] shadow-sm">
+                        
+                        {/* Glow effect */}
+                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-primary/20 rounded-full blur-[100px] pointer-events-none mix-blend-screen" />
 
-                    {/* Tools */}
-                    <TiltCard className="bg-card border border-border p-8 rounded-2xl md:col-span-1 lg:col-span-1 shadow-sm">
-                        <h3 className="text-2xl font-bold mb-6 text-accent flex items-center gap-2 border-b border-border pb-4">
-                            Tools
-                        </h3>
-                        <div className="grid grid-cols-2 gap-3">
-                            {SKILLS.tools.map((tool, index) => (
-                                <motion.div
-                                    key={tool.name}
-                                    initial={{ opacity: 0, y: 10 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: index * 0.05 }}
-                                    className="flex items-center gap-2 p-3 bg-background/50 rounded-xl border border-border/50 hover:bg-background transition-colors cursor-default"
-                                >
-                                    {tool.icon && (
-                                        <img 
-                                            src={tool.icon} 
-                                            alt={`${tool.name} icon`} 
-                                            className="w-6 h-6 object-contain shrink-0"
-                                        />
-                                    )}
-                                    <span className="text-sm font-medium text-text-primary">{tool.name}</span>
-                                </motion.div>
-                            ))}
+                        {/* Center Core */}
+                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 bg-background border border-border rounded-full flex items-center justify-center shadow-[0_0_30px_rgba(var(--primary),0.3)] z-20">
+                            <Code2 size={40} className="text-primary animate-pulse" />
                         </div>
-                    </TiltCard>
 
-                    {/* Professional Skills (Moved to the bottom row, spanning full width) */}
+                        {/* Rings */}
+                        <OrbitRing radius={140} speed={25} reverse={true} items={SKILLS.tools} iconSize={48} />
+                        <OrbitRing radius={240} speed={35} reverse={false} items={SKILLS.technical} iconSize={56} />
+                        
+                    </div>
+                </div>
+
+                <div className="grid grid-cols-1">
                     <TiltCard className="bg-card border border-border p-8 rounded-2xl md:col-span-2 lg:col-span-3 shadow-sm">
                         <h3 className="text-2xl font-bold mb-6 text-secondary flex justify-center border-b border-border pb-4">
                             Professional Traits

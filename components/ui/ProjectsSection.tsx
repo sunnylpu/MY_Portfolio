@@ -32,7 +32,14 @@ export default function ProjectsSection() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {PROJECTS.map((project, index) => (
-                        <div key={index} onClick={() => setSelectedProject(project)}>
+                        <motion.div 
+                            key={index} 
+                            initial={{ opacity: 0, y: 80, scale: 0.95 }}
+                            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                            transition={{ duration: 0.7, delay: index * 0.15, type: "spring", stiffness: 100, damping: 20 }}
+                            viewport={{ once: true, margin: "-50px" }}
+                            onClick={() => setSelectedProject(project)}
+                        >
                             <TiltCard className="cursor-pointer group h-full">
                                 <div className="bg-card border border-border shadow-sm rounded-2xl overflow-hidden h-full">
                                     <div className="relative h-48 overflow-hidden">
@@ -72,7 +79,7 @@ export default function ProjectsSection() {
                                     </div>
                                 </div>
                             </TiltCard>
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
             </div>
