@@ -116,7 +116,7 @@ export default function HeroSection() {
     return (
         <div
             ref={container}
-            className="h-screen overflow-hidden flex flex-col items-center justify-center relative"
+            className="h-screen overflow-hidden flex flex-col items-center justify-center relative pt-24 md:pt-32"
         >
             <motion.div style={{ y }} className="relative z-10 text-center flex flex-col items-center">
                 {/* Profile Image container */}
