@@ -1,7 +1,7 @@
 "use client";
 
-import { useRef } from "react";
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { SKILLS, PROFILE } from "@/app/data";
 import TiltCard from "./TiltCard";
 import { Code2 } from "lucide-react";
@@ -53,6 +53,8 @@ const OrbitRing = ({ radius, speed, reverse, items, iconSize = 48 }: any) => {
 // Replaced vertical SkillBar with horizontal cards below in the section rendering.
 
 export default function SkillsSection() {
+    const [isOrbitView, setIsOrbitView] = useState(true);
+
     return (
         <section className="py-20 relative z-10" id="skills">
             <div className="container mx-auto px-4">
@@ -80,14 +82,70 @@ export default function SkillsSection() {
                         {/* Glow effect */}
                         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-primary/20 rounded-full blur-[100px] pointer-events-none mix-blend-screen" />
 
-                        {/* Center Core */}
-                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 bg-background border border-border rounded-full flex items-center justify-center shadow-[0_0_30px_rgba(var(--primary),0.3)] z-20">
-                            <Code2 size={40} className="text-primary animate-pulse" />
-                        </div>
+                        {/* Toggle Button */}
+                        <button 
+                            onClick={() => setIsOrbitView(!isOrbitView)}
+                            className={`absolute z-50 bg-background border transition-all duration-500 flex items-center justify-center shadow-[0_0_30px_rgba(var(--primary),0.3)] cursor-pointer group hover:border-primary/80 ${
+                                isOrbitView 
+                                    ? "top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 border-border rounded-full" 
+                                    : "top-6 right-6 translate-x-0 translate-y-0 w-14 h-14 border-primary rounded-xl"
+                            }`}
+                            title={isOrbitView ? "View as Grid" : "View as Orbit"}
+                        >
+                            <Code2 size={isOrbitView ? 40 : 24} className="text-primary animate-pulse group-hover:scale-110 transition-transform" />
+                        </button>
 
-                        {/* Rings */}
-                        <OrbitRing radius={140} speed={25} reverse={true} items={SKILLS.tools} iconSize={48} />
-                        <OrbitRing radius={240} speed={35} reverse={false} items={SKILLS.technical} iconSize={56} />
+                        <AnimatePresence mode="wait">
+                            {isOrbitView ? (
+                                <motion.div
+                                    key="orbit"
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    exit={{ opacity: 0, scale: 0.9 }}
+                                    transition={{ duration: 0.3 }}
+                                    className="absolute inset-0"
+                                >
+                                    {/* Rings */}
+                                    <OrbitRing radius={140} speed={25} reverse={true} items={SKILLS.tools} iconSize={48} />
+                                    <OrbitRing radius={240} speed={35} reverse={false} items={SKILLS.technical} iconSize={56} />
+                                </motion.div>
+                            ) : (
+                                <motion.div
+                                    key="grid"
+                                    initial={{ opacity: 0, scale: 0.9 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    exit={{ opacity: 0 }}
+                                    transition={{ duration: 0.3 }}
+                                    className="w-full max-w-5xl z-30 pt-16 pb-8 px-4"
+                                    style={{ maxHeight: "600px", overflowY: "auto" }}
+                                >
+                                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+                                        {[...SKILLS.technical, ...SKILLS.tools].map((item: any, i: number) => (
+                                            <motion.div
+                                                key={item.name}
+                                                initial={{ opacity: 0, y: 10 }}
+                                                animate={{ opacity: 1, y: 0 }}
+                                                transition={{ delay: i * 0.03 }}
+                                                className="bg-background/80 backdrop-blur-md border border-border/50 rounded-2xl p-6 flex flex-col items-center justify-center gap-4 hover:border-primary/50 hover:bg-card/50 transition-all group shadow-sm hover:shadow-md"
+                                            >
+                                                {item.icon ? (
+                                                    <div className="w-14 h-14 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                                                        <img src={item.icon} alt={item.name} className="w-12 h-12 object-contain drop-shadow-sm" />
+                                                    </div>
+                                                ) : (
+                                                    <div className="w-14 h-14 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 bg-primary/10 rounded-full">
+                                                        <Code2 size={24} className="text-primary" />
+                                                    </div>
+                                                )}
+                                                <span className="text-sm font-semibold text-text-primary group-hover:text-primary transition-colors text-center">
+                                                    {item.name}
+                                                </span>
+                                            </motion.div>
+                                        ))}
+                                    </div>
+                                </motion.div>
+                            )}
+                        </AnimatePresence>
                         
                     </div>
                 </div>

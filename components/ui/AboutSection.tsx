@@ -27,10 +27,10 @@ export default function AboutSection() {
                             <h2 className="text-4xl md:text-5xl font-bold font-display tracking-tight text-neutral-900 dark:text-neutral-50 mb-8">
                                 About <span className="text-gradient">Me</span>
                             </h2>
-                            <p className="text-lg md:text-xl text-neutral-600 dark:text-neutral-400 leading-relaxed font-light">
+                            <p className="text-lg md:text-xl text-neutral-800 dark:text-neutral-200 leading-relaxed">
                                 {PROFILE.about.text1}
                             </p>
-                            <p className="text-lg md:text-xl text-neutral-600 dark:text-neutral-400 leading-relaxed font-light">
+                            <p className="text-lg md:text-xl text-neutral-800 dark:text-neutral-200 leading-relaxed">
                                 {PROFILE.about.text2}
                             </p>
                         </div>
@@ -46,7 +46,7 @@ export default function AboutSection() {
                                     className="p-6 bg-neutral-100 dark:bg-neutral-900/50 rounded-2xl border border-neutral-200 dark:border-neutral-800 text-center hover:bg-neutral-200 dark:hover:bg-neutral-800 transition-colors"
                                 >
                                     <div className="text-3xl font-bold text-primary mb-2 font-display">{stat.value}</div>
-                                    <div className="text-sm text-neutral-500 dark:text-neutral-400 font-medium tracking-wide uppercase">{stat.label}</div>
+                                    <div className="text-sm text-neutral-700 dark:text-neutral-300 font-medium tracking-wide uppercase">{stat.label}</div>
                                 </motion.div>
                             ))}
                         </div>

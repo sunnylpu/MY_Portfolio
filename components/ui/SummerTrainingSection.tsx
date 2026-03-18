@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { SUMMER_TRAINING } from "@/app/data";
-import { Briefcase } from "lucide-react";
+import { Briefcase, ExternalLink } from "lucide-react";
 
 export default function SummerTrainingSection() {
     return (
@@ -46,13 +46,25 @@ export default function SummerTrainingSection() {
                                     <p className="text-neutral-300 leading-relaxed mb-6 text-lg">
                                         {training.desc}
                                     </p>
-                                    <div className="flex flex-wrap gap-2">
-                                        {training.tags.map(tag => (
+                                    <div className="flex flex-wrap gap-2 mb-6">
+                                        {training.tags.map((tag: string) => (
                                             <span key={tag} className="px-3 py-1 bg-white/10 rounded-full text-xs font-medium text-neutral-300">
                                                 {tag}
                                             </span>
                                         ))}
                                     </div>
+                                    
+                                    {(training as any).certificateLink && (
+                                        <a 
+                                            href={(training as any).certificateLink}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 hover:bg-primary/20 text-primary border border-primary/20 rounded-lg text-sm font-medium transition-colors w-fit"
+                                        >
+                                            View Certificate
+                                            <ExternalLink size={16} />
+                                        </a>
+                                    )}
                                 </div>
                             </div>
                         </motion.div>

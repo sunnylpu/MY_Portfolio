@@ -29,7 +29,11 @@ export default function GitHubReplica({ data }: GitHubProps) {
                         </div>
                     </div>
                     <div>
-                        <h2 className="text-xl font-bold text-neutral-900 dark:text-[#c9d1d9]">{data.username}</h2>
+                        <h2 className="text-xl font-bold text-neutral-900 dark:text-[#c9d1d9]">
+                            <a href={data.profileUrl} target="_blank" rel="noopener noreferrer" className="hover:text-blue-500 hover:underline transition-colors">
+                                {data.username}
+                            </a>
+                        </h2>
                         <div className="text-neutral-500 dark:text-[#8b949e]">Full Stack Developer</div>
 
                         <div className="flex items-center gap-4 mt-3 text-sm text-neutral-600 dark:text-[#8b949e]">

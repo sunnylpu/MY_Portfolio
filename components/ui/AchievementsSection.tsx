@@ -1,11 +1,25 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { ACHIEVEMENTS } from "@/app/data";
 import { Trophy } from "lucide-react";
 import TiltCard from "./TiltCard";
 
 export default function AchievementsSection() {
+    const [lcSolved, setLcSolved] = useState<number | null>(null);
+
+    useEffect(() => {
+        fetch("/api/coding-stats")
+            .then(res => res.json())
+            .then(data => {
+                if (data?.leetcode?.totalSolved) {
+                    setLcSolved(data.leetcode.totalSolved);
+                }
+            })
+            .catch(console.error);
+    }, []);
+
     return (
         <section className="py-20 relative z-10" id="achievements">
             <div className="container mx-auto px-4">
@@ -50,8 +64,12 @@ export default function AchievementsSection() {
                                                             {ach.title}
                                                             <span className="opacity-0 group-hover:opacity-100 transition-opacity text-xs border border-accent/30 text-accent px-2 py-0.5 rounded-full">View</span>
                                                         </h4>
-                                                        <p className="text-text-secondary text-base mb-3 leading-relaxed tracking-wide">{ach.desc}</p>
-                                                        <span className="text-xs font-mono text-primary/70">{ach.date}</span>
+                                                            <p className="text-text-secondary text-base mb-3 leading-relaxed tracking-wide">
+                                                                {ach.title === "LeetCode Specialist" && lcSolved 
+                                                                    ? ach.desc.replace(/Solved \d+\+ Problems\./, `Solved ${lcSolved}+ Problems.`) 
+                                                                    : ach.desc}
+                                                            </p>
+                                                            <span className="text-xs font-mono text-primary/70">{ach.date}</span>
                                                     </div>
                                                 </div>
                                             </a>
@@ -60,7 +78,11 @@ export default function AchievementsSection() {
                                                 <ach.icon size={32} className="text-primary mt-1 shrink-0" />
                                                 <div>
                                                     <h4 className="font-bold text-xl leading-tight mb-2 text-text-primary">{ach.title}</h4>
-                                                    <p className="text-text-secondary text-base mb-3 leading-relaxed tracking-wide">{ach.desc}</p>
+                                                    <p className="text-text-secondary text-base mb-3 leading-relaxed tracking-wide">
+                                                        {ach.title === "LeetCode Specialist" && lcSolved 
+                                                            ? ach.desc.replace(/Solved \d+\+ Problems\./, `Solved ${lcSolved}+ Problems.`) 
+                                                            : ach.desc}
+                                                    </p>
                                                     <span className="text-xs font-mono text-primary/70">{ach.date}</span>
                                                 </div>
                                             </div>

@@ -12,7 +12,7 @@ export const PROFILE = {
         text2: "I actively engage in competitive programming and have developed robust web applications ranging from ed-tech platforms to travel journals. I am adaptable, organized, and committed to continuous learning.",
         stats: [
             { label: "LeetCode Rank", value: "Top 4%" },
-            { label: "CGPA", value: "7.7" },
+            { label: "CGPA", value: "7.9" },
             { label: "Projects", value: "5+" }
         ]
     },
@@ -20,7 +20,7 @@ export const PROFILE = {
         { name: "Email", icon: Mail, href: "mailto:sunnytyagi2004@gmail.com" },
         { name: "GitHub", icon: Github, href: "https://github.com/sunnylpu" },
         { name: "LinkedIn", icon: Linkedin, href: "https://www.linkedin.com/in/sunny-tyagiiii2004/" },
-        { name: "Resume", icon: FileText, href: "https://drive.google.com/drive/folders/1YyG9XancnzQQr6d030V-9sFVuYo1OYtW?usp=sharing" }
+        { name: "Resume", icon: FileText, href: "https://drive.google.com/file/d/1ggYwMVmUOb9jy4UYyreF6ngWFH1S5hoU/view?usp=sharing" }
     ],
     image: "/profile.jpg" // Add your profile picture to the public folder
 };
@@ -87,7 +87,8 @@ export const SUMMER_TRAINING = [
         degree: "Summer Training",
         period: "Jun 2025 - Jul 2025",
         desc: "Developed a robust Full-Stack Note Application using MERN. Gained hands-on experience in debugging, code optimization, and integrating third-party APIs.",
-        tags: ["MERN Stack", "Industrial Training", "Full Stack"]
+        tags: ["MERN Stack", "Industrial Training", "Full Stack"],
+        certificateLink: "https://drive.google.com/open?id=1fJAOUFLtoQdq896shTt5HZ8bxuaDsmpP"
     }
 ];
 
@@ -96,7 +97,8 @@ export const EDUCATION = [
         institution: "Lovely Professional University",
         degree: "B.Tech in Computer Science",
         period: "Aug 2023 - Present",
-        desc: "Current CGPA: 7.7. Focusing on Data Structures, Algorithms, and Web Development.",
+        desc: "Current CGPA: 7.9. Focusing on Data Structures, Algorithms, and Web Development.",
+        grade: "7.9 CGPA",
         tags: ["Computer Science", "Engineering"]
     },
     {
@@ -110,8 +112,8 @@ export const EDUCATION = [
         institution: "New St. Stephens Public School",
         degree: "Matriculation",
         period: "Apr 2017 - Mar 2019",
-        desc: "Completed with 84% percentage.",
-        grade: "84%"
+        desc: "Completed with 85.6% percentage.",
+        grade: "85.6%"
     }
 ];
 
@@ -132,7 +134,7 @@ export const ACHIEVEMENTS = [
     },
     {
         title: "GeeksforGeeks Active",
-        desc: "Coding Score 70. Institute Rank 9866. Consistent C++ Problem Solver.",
+        desc: "Coding Score 125. Institute Rank 9866. Consistent C++ Problem Solver.",
         date: "2026",
         icon: Cpu,
         link: "https://www.geeksforgeeks.org/profile/sunnytyaa9fe/"
@@ -147,10 +149,21 @@ export const ACHIEVEMENTS = [
 ];
 
 export const CERTIFICATES = [
-    { name: "Cloud Computing (NPTEL)", link: "https://drive.google.com/drive/folders/1hUPa0DnlALUKtgRjB7eihtZBM-OnkAfO?usp=sharing", image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=800" },
-    { name: "Chat GPT Generative AI LLM (Infosys Springboard)", link: "https://drive.google.com/drive/folders/1hUPa0DnlALUKtgRjB7eihtZBM-OnkAfO?usp=sharing", image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800" },
-    { name: "Build Generative AI apps (Infosys Springboard)", link: "https://drive.google.com/drive/folders/1hUPa0DnlALUKtgRjB7eihtZBM-OnkAfO?usp=sharing", image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=800" },
-    { name: "Object Oriented Programming (NeoColab)", link: "https://drive.google.com/drive/folders/1hUPa0DnlALUKtgRjB7eihtZBM-OnkAfO?usp=sharing", image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800" },
-    { name: "Data Structure and Algorithms (NeoColab)", link: "https://drive.google.com/drive/folders/1hUPa0DnlALUKtgRjB7eihtZBM-OnkAfO?usp=sharing", image: "https://images.unsplash.com/photo-1504639725590-34d0984388bd?auto=format&fit=crop&q=80&w=800" }
+    { name: "Summer Training Project", link: "https://drive.google.com/open?id=1fJAOUFLtoQdq896shTt5HZ8bxuaDsmpP", image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=800" },
+    { name: "Computer Programming", link: "https://drive.google.com/open?id=17HQPkL_WqIJs4-74fiVBbGerN50KZ4Nj", image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800" },
+    { name: "Object Oriented Programming (NeoColab)", link: "https://drive.google.com/open?id=1zMpxbK_nG8nSHr6BjSepFom5tI3XxfMK", image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=800" },
+    { name: "Data Structures and Algorithms (NeoColab)", link: "https://drive.google.com/open?id=1ET8Bad6j_zhkip4xeCr_lmSCvHucmdue", image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800" },
+    { name: "Java Programming (NeoColab)", link: "https://drive.google.com/open?id=1_5qIdKCiH6R6fcJ2PkoBU_I2bfN4XQIM", image: "https://images.unsplash.com/photo-1504639725590-34d0984388bd?auto=format&fit=crop&q=80&w=800" },
+    { name: "The Bits and Bytes of Computer Networking", link: "https://drive.google.com/open?id=1k96SIPmDt0lSdy7zMC5hq3Mn2oymcK2q", image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=800" },
+    { name: "TCP/IP and Advanced Topics", link: "https://drive.google.com/open?id=1-CsxUcxlSTHFJDVveJ-JCqz1TEzmlZfc", image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800" },
+    { name: "Introduction to Hardware and Operating Systems", link: "https://drive.google.com/open?id=1FxWJPYm-U1fzzFJ3dOdVfzN3KdkU1CpW", image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=800" },
+    { name: "Peer-to-Peer Protocols and Local Area Networks", link: "https://drive.google.com/open?id=117Nd2SDHAa3tn0TJnMoeQYZOYmDz6y73", image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800" },
+    { name: "ChatGPT 4 and Prompt Engineering", link: "https://drive.google.com/open?id=1YFScEMI3VOupdhB5bfdLgiw4-qm2y6NT", image: "https://images.unsplash.com/photo-1504639725590-34d0984388bd?auto=format&fit=crop&q=80&w=800" },
+    { name: "Fundamentals of Network Communication", link: "https://drive.google.com/open?id=1lLavpJTYGgZaGjWkp9WriMxD_14r0yUD", image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=800" },
+    { name: "Packet Switching Networks and Algorithms", link: "https://drive.google.com/open?id=1siWRvLJV1SUhQkt7eJp5LcgJ8ARU27D1", image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800" },
+    { name: "Build Generative AI Apps", link: "https://drive.google.com/open?id=1fPuJTAQc7NcwqvTvaCpJfunnn5GzMCmz", image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=800" },
+    { name: "Master Generative and Generative AI Tools", link: "https://drive.google.com/open?id=1-oyqPSg6YZXc7fICjuPvR_GUaBnzlRa6", image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800" },
+    { name: "Computational Theory", link: "https://drive.google.com/open?id=1jrGA3olLdERGcF_PLxzib7snDx3G9fQq", image: "https://images.unsplash.com/photo-1504639725590-34d0984388bd?auto=format&fit=crop&q=80&w=800" },
+    { name: "Digital Systems: From Logic Gates to Processors", link: "https://drive.google.com/open?id=1OzGJBocbAO-VXCkZF6JZcIIaAAMqc_vH", image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=800" }
 ];
 

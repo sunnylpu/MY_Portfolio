@@ -33,7 +33,11 @@ export default function LeetCodeReplica({ data }: LeetCodeProps) {
                     <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png" className="w-8 h-8 opacity-80 dark:invert" alt="LeetCode" />
                 </div>
                 <div>
-                    <h3 className="text-lg font-bold text-neutral-800 dark:text-neutral-200">{data.username}</h3>
+                    <h3 className="text-lg font-bold text-neutral-800 dark:text-neutral-200">
+                        <a href={data.profileUrl} target="_blank" rel="noopener noreferrer" className="hover:text-amber-500 hover:underline transition-colors">
+                            {data.username}
+                        </a>
+                    </h3>
                     <div className="text-xs text-neutral-500 dark:text-neutral-400">Global Rank: {data.ranking.toLocaleString()}</div>
                 </div>
             </div>

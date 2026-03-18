@@ -9,7 +9,7 @@ import Image from "next/image";
 
 const Letter = ({ children, index }: { children: string; index: number }) => {
     return (
-        <span className="inline-block overflow-hidden pb-4 -mb-4">
+        <span className="inline-block overflow-hidden pb-8 -mb-8 pt-4 -mt-4">
             <motion.span
                 initial={{ y: "150%" }}
                 animate={{ y: 0 }}
@@ -28,7 +28,7 @@ const Letter = ({ children, index }: { children: string; index: number }) => {
 
 const Title = ({ text }: { text: string }) => {
     return (
-        <div className="overflow-hidden flex flex-wrap justify-center gap-x-2 md:gap-x-4">
+        <div className="flex flex-wrap justify-center gap-x-2 md:gap-x-4">
             {text.split(" ").map((word, wordIdx) => (
                 <div key={wordIdx} className="flex">
                     {word.split("").map((char, i) => (
@@ -118,7 +118,7 @@ export default function HeroSection() {
             ref={container}
             className="h-screen overflow-hidden flex flex-col items-center justify-center relative pt-24 md:pt-32"
         >
-            <motion.div style={{ y }} className="relative z-10 text-center flex flex-col items-center">
+            <motion.div style={{ y }} className="relative z-10 text-center flex flex-col items-center mt-24 md:mt-32">
                 {/* Profile Image container */}
                 <motion.div 
                     initial={{ scale: 0, opacity: 0 }}
@@ -146,7 +146,7 @@ export default function HeroSection() {
                     </div>
                 </motion.div>
 
-                <h1 className="text-[9vw] leading-[0.8] font-display font-bold tracking-tighter mix-blend-difference mb-4">
+                <h1 className="text-6xl md:text-[7vw] leading-tight font-display font-bold tracking-tighter mix-blend-difference mb-6">
                     <Title text={PROFILE.name} />
                 </h1>
 
