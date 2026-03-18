@@ -156,37 +156,46 @@ export default function SkillsSection() {
                             Professional Traits
                         </h3>
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                            {SKILLS.professional.map((skill) => (
-                                <div key={skill.name} className="text-center p-4 bg-background/50 rounded-xl border border-border/50 hover:bg-background transition-colors">
-                                    <div className="relative w-16 h-16 mx-auto mb-2">
-                                        <svg className="w-full h-full transform -rotate-90">
-                                            <circle
-                                                cx="32"
-                                                cy="32"
-                                                r="28"
-                                                stroke="currentColor"
-                                                strokeWidth="4"
-                                                fill="transparent"
-                                                className="text-border"
-                                            />
-                                            <motion.circle
-                                                cx="32"
-                                                cy="32"
-                                                r="28"
-                                                stroke="currentColor"
-                                                strokeWidth="4"
-                                                fill="transparent"
-                                                className="text-secondary"
-                                                initial={{ strokeDasharray: "175.9", strokeDashoffset: "175.9" }}
-                                                whileInView={{ strokeDashoffset: String(175.9 - (175.9 * skill.level) / 100) }}
-                                                transition={{ duration: 1.5, ease: "easeOut" }}
-                                            />
-                                        </svg>
-                                        <span className="absolute inset-0 flex items-center justify-center text-xs font-bold text-text-primary">
-                                            {skill.level}%
-                                        </span>
+                            {SKILLS.professional.map((skill: any) => (
+                                <div key={skill.name} className="group relative overflow-hidden text-center p-6 bg-background/50 rounded-2xl border border-border/50 hover:bg-background transition-all hover:scale-105 shadow-sm min-h-[220px] flex flex-col justify-end">
+                                    {skill.image && (
+                                        <>
+                                            <img src={skill.image} alt={skill.name} className="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-60 transition-opacity duration-300 z-0" />
+                                            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent z-0" />
+                                        </>
+                                    )}
+                                    
+                                    <div className="relative z-10 w-full flex flex-col items-center">
+                                        <div className="relative w-16 h-16 mx-auto mb-4 drop-shadow-md">
+                                            <svg className="w-full h-full transform -rotate-90 drop-shadow-lg">
+                                                <circle
+                                                    cx="32"
+                                                    cy="32"
+                                                    r="28"
+                                                    stroke="currentColor"
+                                                    strokeWidth="4"
+                                                    fill="transparent"
+                                                    className="text-background/80"
+                                                />
+                                                <motion.circle
+                                                    cx="32"
+                                                    cy="32"
+                                                    r="28"
+                                                    stroke="currentColor"
+                                                    strokeWidth="4"
+                                                    fill="transparent"
+                                                    className="text-primary drop-shadow-[0_0_8px_rgba(var(--primary),0.8)]"
+                                                    initial={{ strokeDasharray: "175.9", strokeDashoffset: "175.9" }}
+                                                    whileInView={{ strokeDashoffset: String(175.9 - (175.9 * skill.level) / 100) }}
+                                                    transition={{ duration: 1.5, ease: "easeOut" }}
+                                                />
+                                            </svg>
+                                            <span className="absolute inset-0 flex items-center justify-center text-xs font-bold text-white drop-shadow-md">
+                                                {skill.level}%
+                                            </span>
+                                        </div>
+                                        <p className="text-base font-bold text-white tracking-wide drop-shadow-md">{skill.name}</p>
                                     </div>
-                                    <p className="text-sm font-medium text-text-primary">{skill.name}</p>
                                 </div>
                             ))}
                         </div>

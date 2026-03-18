@@ -36,10 +36,10 @@ export const SKILLS = {
         { name: "Python", level: 70, icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" }
     ],
     professional: [
-        { name: "Adaptability", level: 90 },
-        { name: "Time Management", level: 85 },
-        { name: "Organization", level: 90 },
-        { name: "Teamwork", level: 85 }
+        { name: "Resilient", level: 90, image: "/trait_resilient.png" },
+        { name: "Methodical", level: 85, image: "/trait_methodical.png" },
+        { name: "Efficiency-driven", level: 90, image: "/trait_efficiency.png" },
+        { name: "Amiable", level: 85, image: "/trait_amiable.png" }
     ],
     tools: [
         { name: "VS Code", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg" },
@@ -56,28 +56,28 @@ export const PROJECTS = [
         title: "Language Learning Platform",
         description: "A MERN stack platform with real-time speech recognition (Web Speech API) and Text-to-Speech integration for pronunciation practice.",
         tags: ["MongoDB", "Express", "React", "Node.js", "Web Speech API"],
-        link: "#",
-        github: "https://github.com/sunnylpu", // Placeholder based on CV
+        link: "https://llp-psi.vercel.app/",
+        github: "https://github.com/sunnylpu/LLP",
         featured: true,
-        image: "/project-lang.png" // Placeholder
+        image: "/project-lang.png"
     },
     {
         title: "CipherSchools Note App",
         description: "Robust Full-Stack Note Application implementing full CRUD functionality, JWT authentication, and third-party API integration.",
         tags: ["MERN Stack", "JWT", "Debugging", "Optimization"],
-        link: "#",
-        github: "#",
+        link: "https://note-app-chi-dusky.vercel.app/login",
+        github: "https://github.com/sunnylpu/Note-App",
         featured: true,
-        image: "/project-cipher.png" // Placeholder
+        image: "/project-cipher.png"
     },
     {
-        title: "WanderLust Travel Journal",
-        description: "Futuristic Travel Journal Web Application using Google Maps API to dynamically display landmarks and visualize travel locations.",
-        tags: ["HTML", "CSS", "JavaScript", "Google Maps API", "Local Storage"],
-        link: "#",
-        github: "https://github.com/sunnylpu",
+        title: "Event Calendar",
+        description: "Dynamic Event Calendar and scheduling web application with interactive views and streamlined event management.",
+        tags: ["Next.js", "React", "Tailwind CSS", "Scheduling"],
+        link: "https://event-calendar-bjkx.vercel.app/",
+        github: "https://github.com/sunnylpu/travel-journal-assistant",
         featured: false,
-        image: "/project-travel.png" // Placeholder
+        image: "/project-event-calendar.png"
     }
 ];
 
